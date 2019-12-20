@@ -15,7 +15,7 @@ function fail($str, $id = true)
 function autoreg($dbc)
 {
 
-    $result = mysqli_query($dbc, 'SELECT Номер_телефона, Хэш, ВУ, Администратор FROM users WHERE Номер_телефона = ' . $_POST['number'] . ';');
+    $result = mysqli_query($dbc, 'SELECT Номер_телефона, Хэш, ВУ, Администратор FROM users WHERE Номер_телефона = \'' . $_POST['number'] . '\';');
     if (mysqli_num_rows($result) > 0) {
         $result = mysqli_fetch_array($result);
         if (password_verify($_POST['password'], $result[1])) {
@@ -76,9 +76,9 @@ if (!(count($_POST) > 3)) {
         fail('номер телефона');
     }
     require('connect_bd.php');
-    $sql = "INSERT INTO users (Имя, Фамилия, Отчество, ВУ, Номер_телефона,Хэш)
+    $sql = "INSERT INTO users (Имя, Фамилия, Отчество, ВУ, Номер_телефона,Хэш,Администратор)
     VALUES
-    ('$name','$surname','$sursurname','$licence','$phone','$hash')";
+    ('$name','$surname','$sursurname','$licence','$phone','$hash',0)";
     mysqli_query($dbc,$sql);
     session_start();
     setcookie('Licence',$licence);

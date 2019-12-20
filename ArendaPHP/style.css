@@ -133,5 +133,20 @@ h1{
     background: none;
     margin: 0 auto;
 }
+#butreg{
+    margin-left: 0px;
+}
 
+#reg{
+    width: 250px;
+}
+.navi{
+    float: left;
+    display: table;
+    margin-left: 15px;
+    width: 280px;
+}
+.navi p{
+    text-align: center;
+}
 

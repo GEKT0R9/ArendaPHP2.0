@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Дек 20 2019 г., 12:50
--- Версия сервера: 8.0.15
--- Версия PHP: 7.3.9
+-- Время создания: Дек 20 2019 г., 10:02
+-- Версия сервера: 8.0.12
+-- Версия PHP: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -42,7 +42,7 @@ INSERT INTO `auto` (`ID`, `Рег_номер`, `Марка`) VALUES
 (1, 'ф156ры05', 'LADA'),
 (2, 'к546пк777', 'Mitsubishi'),
 (3, 'д336ил123', 'Chevrolet'),
-(4, 'п456ао30', 'Mazda'),
+(4, 'п456др30', 'Mazda'),
 (5, 'р111ип45', 'Daewoo'),
 (6, 'к117ай79', 'Lifan'),
 (7, 'с700ры83', 'Opel'),
@@ -102,7 +102,7 @@ INSERT INTO `color` (`ID`, `Цвет`) VALUES
 (1, 'Жёлтый'),
 (2, 'Серый'),
 (3, 'Жёлтый'),
-(4, 'Зелёный'),
+(4, 'Черный'),
 (5, 'Красный'),
 (6, 'Золотой'),
 (7, 'Фиолетовый'),
@@ -138,7 +138,7 @@ INSERT INTO `contract` (`ID_contract`, `Рег_номер`, `ВУ`, `Дата`, 
 (3, 'д336ил123', '5469781325', '2001-04-01', 15, '22500'),
 (4, 'р111ип45', '9876543211', '2005-06-23', 7, '3500'),
 (5, 'ф156ры05', '9945613256', '2002-11-09', 2, '600'),
-(6, 'п456ао30', '2266265456', '2003-12-13', 15, '15000'),
+(6, 'п456др30', '2266265456', '2003-12-13', 15, '15000'),
 (7, 'к546пк777', '6786456987', '2001-11-13', 10, '9000'),
 (8, 'р111ип45', '1234655322', '2003-04-12', 20, '10000'),
 (9, 'к541ек82', '1215958573', '2004-06-15', 30, '18900'),
@@ -149,8 +149,7 @@ INSERT INTO `contract` (`ID_contract`, `Рег_номер`, `ВУ`, `Дата`, 
 (14, 'н888вм23', '7564235485', '2003-09-05', 3, '5100'),
 (15, 'к058ве30', '6543219845', '2003-08-15', 5, '1900'),
 (16, 'н450ко30', '1122334455', '2002-10-14', 15, '6000'),
-(28, 'к058ве30', '9911566623', '2001-10-25', 30, '11400'),
-(29, 'с700ры83', '9849825627', '2012-12-12', 12, '10200');
+(28, 'к058ве30', '9911566623', '2001-10-25', 30, '11400');
 
 -- --------------------------------------------------------
 
@@ -267,14 +266,12 @@ INSERT INTO `users` (`Имя`, `Фамилия`, `Отчество`, `ВУ`, `Н
 ('Михаил', 'Затруднительный', 'Алёшевич', '1215958573', '89610543354', '$2y$10$upw8diU19MC05GUYgd.htep1gHz.aZO8uFjyQC0Ota63/vueIl0Ry', 0),
 ('Николай', 'Чумоченко', 'Почемучевич', '1234655322', '89996451928', '$2y$10$zW9IJf4Q.W0DibHcE7LHkenQdDpm6XnNmBfuC0ICirMJhsHSgenBK', 0),
 ('Иван', 'Иванов', 'Иванович', '2266265456', '89880627311', '$2y$10$beDBu69aeMeqS..MlySwVu6JIlpXgCxpbqLyblh474CdtO/1VhKHa', 0),
-('Сергей', 'Никонов', 'Владимирович', '2546975846', '89969123370', '$2y$10$Y2Hpx1MmJtkQcxKMPaQ18.aDRjxH.PRIPMHfEFV.7Zpxa/WusiX7e', 1),
 ('Васян', 'Пупкин', 'Паштетович', '2838228228', '89573645972', '$2y$10$QnvWjtmhDXzn0wKxOSReXu5YcPHPf2h2Xa6z2Z7ymI65n2yss9qxG', 0),
 ('Дмитрий', 'Морозов', 'Васянович', '3015765534', '89398235892', '$2y$10$CES5sCkU.FGF9pQWWuDXVekvxOBYPDbbrBIe/qgJb//eui7EIyh5q', 0),
 ('Любовь', 'Досвидантесь', 'Олегофреновна', '4125748249', '89654123548', '$2y$10$tdfMbbwABg00/WloPl8FvO1kCaiwORwmy0OmYCIBkvXqUBb7vXhY6', 0),
 ('Владислав', 'Алегафф', 'Алегавич', '5469781325', '89608556750', '$2y$10$XNfpO3hWaIRQzI3OVubeh.XbKgi94SMvcOAVSfDYTME5V.lL2UZKa', 0),
 ('Аркадий', 'Паровозов', 'Дмитриевич', '6543219845', '89651468136', '$2y$10$TSKq.OcmHhz7pPDy35J0JOHylznrv.cslHm2IwzreVOltU4RlWuva', 0),
 ('Антон', 'Чехов', 'Павлович', '6786456987', '89608600952', '$2y$10$Dic6yf3u83BbvVTp9vAC/urTgzh0qgwXb0mQLO8eWJ/ByEGxoa8Su', 0),
-('Ренат', 'Досаев', 'Фаридович', '6795735624', '89605274552', '$2y$10$PrKDM1Qet8DlfaztYoNBtu7/kj9A/WtgTGmpD8ec3mHcqsyZHI3g6', 1),
 ('Анастасия', 'Чумоченко', 'Петровна', '7564235485', '89995312647', '$2y$10$OZ/p2g.nMab9Kgps7IXIRezX56UPhcPxquTVWVA6MCmH0o/3xBHbe', 0),
 ('Наталья', 'Баромина', 'Викторовна', '7984561326', '89651321564', '$2y$10$7CY6nx7yp.X0LeHfnUh6Se4QTXhlXCVxGRquTdlX/xCqURimFnx8u', 0),
 ('Виктория', 'Степанюк', 'Андреевна', '9849825627', '89532564136', '$2y$10$3hLiRE7Aha97OC6T0dRElOhvRQpUCaq2SgQ7s08vHpYZtEg4Lvcqq', 0),
@@ -346,13 +343,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `auto`
 --
 ALTER TABLE `auto`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT для таблицы `contract`
 --
 ALTER TABLE `contract`
-  MODIFY `ID_contract` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `ID_contract` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
@@ -362,38 +359,38 @@ ALTER TABLE `contract`
 -- Ограничения внешнего ключа таблицы `carcass`
 --
 ALTER TABLE `carcass`
-  ADD CONSTRAINT `carcass_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `auto` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `carcass_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `auto` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `color`
 --
 ALTER TABLE `color`
-  ADD CONSTRAINT `color_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `auto` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `color_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `auto` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `contract`
 --
 ALTER TABLE `contract`
-  ADD CONSTRAINT `contract_ibfk_3` FOREIGN KEY (`Рег_номер`) REFERENCES `auto` (`Рег_номер`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `contract_ibfk_4` FOREIGN KEY (`ВУ`) REFERENCES `users` (`ВУ`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `contract_ibfk_3` FOREIGN KEY (`Рег_номер`) REFERENCES `auto` (`рег_номер`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `contract_ibfk_4` FOREIGN KEY (`ВУ`) REFERENCES `users` (`ву`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `gearbox`
 --
 ALTER TABLE `gearbox`
-  ADD CONSTRAINT `gearbox_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `auto` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `gearbox_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `auto` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `model`
 --
 ALTER TABLE `model`
-  ADD CONSTRAINT `model_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `auto` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `model_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `auto` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `price`
 --
 ALTER TABLE `price`
-  ADD CONSTRAINT `price_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `auto` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `price_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `auto` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

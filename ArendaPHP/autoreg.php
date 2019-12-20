@@ -1,16 +1,17 @@
 <?php
 echo '<link rel="stylesheet" href="style.css">';
-echo '<div><form action="process_user.php" method="post">
+echo '<div id="reg"><form action="process_user.php" method="post">
 <p>
-    <label>Ваш номер телефона:<br></label>
+    <p>Ваш номер телефона:<br></p>
     <input name="number" type="text" size="15" maxlength="15">
     </p>
 <p>
-    <label>Ваш пароль:<br></label>
+    <p>Ваш пароль:<br></p>
     <input name="password" type="password" size="15" maxlength="15">
     </p>
 <p>
     <input id="butt" type="submit" name="submit" value="Вход">
-</p></form>
-<a href="reg.php">Зарегестрироваться</a>
+</p>
+</form>
+<p id="butreg"><a href="reg.php">Зарегестрироваться</a></p>
 </div>';

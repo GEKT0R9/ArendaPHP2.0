@@ -57,23 +57,67 @@ if (isset($_POST['price'])) {
     } else {
         fail('цену');
     }
+    if (!empty($_COOKIE['ID_auto'])) {
+        $sql = 'UPDATE auto SET Рег_номер = \'' . $R_number . '\', Марка = \'' . $mark . '\' WHERE ID = ' . $_COOKIE['ID_auto'] . ';';
+        if (!($dat = mysqli_query($dbc, $sql))) {
+            fail('Ошибка заполнения поля рег. номера или марки', false);
+        }
+        $sql = 'UPDATE model SET Модель = \'' . $model . '\' WHERE ID = ' . $_COOKIE['ID_auto'] . ';';
+        if (!($dat = mysqli_query($dbc, $sql))) {
+            fail('Ошибка заполнения поля модели', false);
+        }
+        $sql = 'UPDATE carcass SET Тип_кузова = \'' . $carcass . '\' WHERE ID = ' . $_COOKIE['ID_auto'] . ';';
+        if (!($dat = mysqli_query($dbc, $sql))) {
+            fail('Ошибка заполнения поля тип кузова', false);
+        }
+        $sql = 'UPDATE color SET Цвет = \'' . $color . '\' WHERE ID = ' . $_COOKIE['ID_auto'] . ';';
+        if (!($dat = mysqli_query($dbc, $sql))) {
+            fail('Ошибка заполнения поля цвет', false);
+        }
+        $sql = 'UPDATE gearbox SET КПП = \'' . $gearbox . '\' WHERE ID = ' . $_COOKIE['ID_auto'] . ';';
+        if (!($dat = mysqli_query($dbc, $sql))) {
+            fail('Ошибка заполнения поля кпп', false);
+        }
+        $sql = 'UPDATE price SET Стоимость = \'' . $price . '\' WHERE ID = ' . $_COOKIE['ID_auto'] . ';';
+        if (!($dat = mysqli_query($dbc, $sql))) {
+            fail('Ошибка заполнения поля цена', false);
+        }
+        SetCookie("ID_auto", "");
+        mysqli_close($dbc);
+        header('Location: index.php');
+    } else {
+        $sql = "INSERT INTO auto (Рег_номер, Марка)
+    VALUES
+    ('$R_number','$mark')";
+        mysqli_query($dbc,$sql);
 
-    $sql = 'UPDATE auto SET Рег_номер = '.$R_number.' WHERE ID = '.$_COOKIE['ID_auto'].';';
-    $dat = mysqli_query($dbc, $sql);
-    $sql = 'UPDATE auto SET Марка = '.$mark.' WHERE ID = '.$_COOKIE['ID_auto'].';';
-    $dat = mysqli_query($dbc, $sql);
-    $sql = 'UPDATE model SET Модель = '.$model.' WHERE ID = '.$_COOKIE['ID_auto'].';';
-    $dat = mysqli_query($dbc, $sql);
-    $sql = 'UPDATE carcass SET Тип_кузова = '.$carcass.' WHERE ID = '.$_COOKIE['ID_auto'].';';
-    $dat = mysqli_query($dbc, $sql);
-    $sql = 'UPDATE color SET Цвет = '.$color.' WHERE ID = '.$_COOKIE['ID_auto'].';';
-    $dat = mysqli_query($dbc, $sql);
-    $sql = 'UPDATE gearbox SET КПП = '.$gearbox.' WHERE ID = '.$_COOKIE['ID_auto'].';';
-    $dat = mysqli_query($dbc, $sql);
-    $sql = 'UPDATE price SET Стоимость = '.$price.' WHERE ID = '.$_COOKIE['ID_auto'].';';
-    $dat = mysqli_query($dbc, $sql);
-}
-    SetCookie("ID_auto","");
+        $sql = 'SELECT ID FROM auto WHERE Рег_номер = \''.$R_number.'\';';
+        $varID = mysqli_query($dbc,$sql);
+        $varID = mysqli_fetch_array($varID);
+        $varID = $varID['ID'];
+        $sql = "INSERT INTO model (ID,Модель)
+    VALUES
+    ('$varID','$model')";
+        mysqli_query($dbc,$sql);
+        $sql = "INSERT INTO carcass (ID,Тип_кузова)
+    VALUES
+    ('$varID','$carcass')";
+        mysqli_query($dbc,$sql);
+        $sql = "INSERT INTO color (ID,Цвет)
+    VALUES
+    ('$varID','$color')";
+        mysqli_query($dbc,$sql);
+        $sql = "INSERT INTO gearbox (ID,КПП)
+    VALUES
+    ('$varID','$gearbox')";
+        mysqli_query($dbc,$sql);
+        $sql = "INSERT INTO price (ID,Стоимость)
+    VALUES
+    ('$varID','$price')";
+        mysqli_query($dbc,$sql);
+    }
     mysqli_close($dbc);
     header('Location: index.php');
+}
+
 //    echo"<meta http-equiv='refresh' content='0; url= contract.php'>";

@@ -6,19 +6,21 @@ echo '<title>Главная</title>';
 $sql = 'SELECT * FROM auto, model, color, carcass, gearbox, price WHERE auto.ID = model.ID and auto.ID = color.ID and auto.ID = carcass.ID and auto.ID = gearbox.ID and auto.ID = price.ID;';
 $result = mysqli_query($dbc, $sql);
 if (!empty($_COOKIE['Licence'])){
-    $sql = 'SELECT Имя, Фамилия, Отчество FROM users WHERE ВУ = '.$_COOKIE['Licence'].';';
+    $sql = 'SELECT Имя, Фамилия, Отчество FROM users WHERE ВУ = \''.$_COOKIE['Licence'].'\';';
     $h1query = mysqli_query($dbc, $sql);
     $h1 = mysqli_fetch_array($h1query,MYSQLI_ASSOC);
     echo '<h1>Здравствуйте '.$h1['Фамилия'].' '.$h1['Имя'].' '.$h1['Отчество'].'</h1>';
+    echo '<div class="navi">';
     if ($_COOKIE['Admin']){
-        echo '<h1>Вы админ<h1>';
-        echo '<p id="but"><a href="edit_auto.php">Редактирование авто</a></p>';
+        echo '<p><a href="edit_auto.php">Редактирование авто</a></p>';
     }
-    echo '<p id="but"><a href="post.php">Создать договор</a></p>';
-    echo '<p id="but"><a href="allcontract.php">Посмотреть прошлые договоры</a></p>';
-    echo '<p id="but"><a href="logout.php">Выход</a></p>';
+    echo '<p><a href="post.php">Создать договор</a></p>';
+    echo '<p ><a href="allcontract.php">Прошлые договоры</a></p>';
+    echo '<p><a href="logout.php">Выход</a></p>';
+    echo '</div>';
 }else{
     echo '<p id="but"><a href="autoreg.php">Авторизация</a></p>';
+    echo '</div>';
 }
 
 if (mysqli_num_rows($result) > 0) {
