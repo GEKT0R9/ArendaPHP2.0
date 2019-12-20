@@ -1,0 +1,137 @@
+body {
+    background: #595959;
+    font-family: "Times New Roman";
+    color: #FFFFFF;
+    font-size: 24px;
+    margin: 10px auto;
+}
+body{
+    background:url(bg.png) fixed;
+    animation: back 150s linear infinite;
+    /*transition: .3s linear;*/
+}
+@keyframes back {
+    from {
+        background-position: 100% -1000px, 0 0;
+    }
+    to {
+        background-position: 100% 1000px, 0 0;
+    }
+}
+a{
+    color: red;
+    font-size: 24px;
+    text-decoration: none;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+    background:#CE3059 ;
+}
+table{
+    border-collapse:collapse;
+    padding: 5px;
+    margin: 0 auto;
+    font-size: 24px;
+
+}
+td{
+    padding: 5px 15px;
+    margin: 5px;
+}
+div p{
+    margin: 10px;
+    text-align: left;
+}
+div{
+    width: 500px;
+    margin: 2% auto 15px 15%;
+    background: #565656;
+    border-radius: 3%;
+    border: solid #262626 10px;
+}
+input{
+    margin-left: 15px;
+    background: #aaa;
+    border: 0;
+    padding: 2px;
+}
+#butt{
+    margin: 0;
+    background: #CE3059;
+    border: 0px;
+    font-size: 24px;
+    color: white;
+    padding:5px 15px;
+    border-radius: 10px;
+    transition: .3s linear;
+}
+select{
+    background: #aaa;
+    border: 0;
+    padding: 2px;
+}
+#buttt{
+    margin: auto 15%;
+}
+#but{
+    text-align: center;
+    margin: 15px 0;
+ }
+form{
+    margin-bottom: 0px;
+}
+#butt:hover, a:hover{
+    background: #CC003D;
+    cursor: pointer;
+}
+
+.cont{
+    font-size: 16px;
+    color:black;
+    background: #fff;
+    width: 1000px;
+    margin: 0 auto;
+    align-content: center;
+    height: 960px;
+    padding: 20px;
+    border: 5px;
+    border-radius: 15px;
+    background: url("paper.jpg");
+}
+.cont p {
+    text-align: center;
+}
+.podi{
+    width: 40px;
+}
+
+.img{
+    float: right;
+    margin-right: 30px;
+    width: 150px;
+    transform: rotate(15deg);
+}
+.podpi{
+    float: left;
+}
+h1{
+    font-size: 20px;
+    text-align: center;
+}
+.car{
+
+    margin: 10px;
+    max-width: 350px;
+    display: inline-block;
+}
+.tr{
+    width: 1280px;
+    text-align: center;
+    border-radius: 0;
+    border: 0;
+    background: none;
+    margin: 0 auto;
+}
+
+
